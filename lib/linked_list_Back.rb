@@ -167,29 +167,18 @@ class LinkedList
           item_2 = get(i + 1)
 
           if ((item_1.to_s > item_2.to_s) && (item_1.class == item_2.class)) or (item_1.class.to_s > item_2.class.to_s)
-            swap_with_next(i)
+            item_swap = item_1
+            item_1 = item_2
+            item_2 = item_swap
+
+            self[i] = item_1
+            self[i + 1] = item_2
           end
         end
       end
 
       return self.to_s
     end
-  end
-
-  def swap_with_next(index)
-    if index >= (@size - 1)
-      raise IndexError
-    end
-    item_swap = nil
-    item_1 = get(index)
-    item_2 = get(index + 1)
-
-    item_swap = item_1
-    item_1 = item_2
-    item_2 = item_swap
-
-    self[index] = item_1
-    self[index + 1] = item_2
   end
 
   def sorted?
@@ -220,3 +209,25 @@ class LinkedList
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
